@@ -1,0 +1,18 @@
+{
+    "name": "edydeyemi/valid8ed",
+    "description": "A simple-to-use, lightweight PHP Validation Class",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Edydeyemi\\Valid8ed\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Edward Babatunde",
+            "email": "edydeyemi@hotmail.com"
+        }
+    ],
+    "require": {}
+}
