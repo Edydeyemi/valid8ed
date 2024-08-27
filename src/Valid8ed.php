@@ -1,8 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Edydeyemi;
 
+/**
+ * Summary of Valid8ed
+ * 
+ * @param string $errors Error meesage returned by method
+ * @param string $field The name of form field to be validated.
+ * @param string $value The value of form field to be validated/compared.
+ * @param array $bucket 
+ * 
+ * @return $this Instance of the class for method chaining. * 
+ */
 class Valid8ed
 {
 
@@ -11,6 +22,14 @@ class Valid8ed
     private string $value;
     public array $bucket = [];
 
+
+    /**
+     * Store values in the bucket.
+     *
+     * Stores the field and value of the instance in the bucket.
+     *
+     * @return void
+     */
     public function storeValues(): void
     {
         $this->bucket[] = [$this->field => $this->value];
@@ -19,10 +38,13 @@ class Valid8ed
     /**
      * dumpValue
      *
-     * @return array
+     * This method returns the values stored in the bucket.
+     *
+     * @return array The values stored in the bucket.
      */
     public function dumpValue(): array
     {
+        // Return the bucket containing the values stored in the instance.
         return $this->bucket;
     }
 
@@ -78,7 +100,7 @@ class Valid8ed
         $this->storeValues();
         return $this;
     }
-    
+
     /**
      * URL Validation
      *
@@ -97,14 +119,22 @@ class Valid8ed
         return $this;
     }
 
-    public function inArray(array $array): self
+
+    /**
+     * Validates if the value is in the given array.
+     *
+     * @param array $array The array to check against.
+     * @return $this Instance of the class for method chaining.
+     */
+    public function inArray(array $array)
     {
-        if (array_key_exists($this->value, array_flip($array))) {
+        if (!in_array($this->value, $array)) {
             $this->errors = $this->field . "_error";
         }
         $this->storeValues();
         return $this;
     }
+
 
     public function equals($control)
     {
@@ -127,6 +157,13 @@ class Valid8ed
         return $this;
     }
 
+
+    /**
+     * Validates if the value is greater than the given control.
+     *
+     * @param int|float $control The value to compare against.
+     * @return $this Instance of the class for method chaining.
+     */
     public function max(int|float $control)
     {
         if ($this->value > $control) {
@@ -273,5 +310,6 @@ class Valid8ed
         $this->storeValues();
         return $this;
     }
+    /* The `}` closing curly brace in the code you provided marks the end of the `Valid8ed` class
+definition in PHP. It signifies the completion of the class and all its methods and properties. */
 }
-
