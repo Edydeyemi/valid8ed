@@ -55,7 +55,7 @@ class Valid8ed
      * @param string|int $value Value of form field
      * @return object
      */
-    public function setField(string $field, string|int $value): object
+    public function setField(string $field, string|int|null $value): object
     {
         $this->field = trim(strtolower($field));
         $this->value = trim($value);
@@ -310,6 +310,5 @@ class Valid8ed
         $this->storeValues();
         return $this;
     }
-    /* The `}` closing curly brace in the code you provided marks the end of the `Valid8ed` class
-definition in PHP. It signifies the completion of the class and all its methods and properties. */
+   
 }
